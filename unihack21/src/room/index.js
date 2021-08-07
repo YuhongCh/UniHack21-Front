@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux';
 import axios from 'axios';
-import {Redirect} from 'react-router-dom';
 import useToken from '../gateway/token'
 import * as actionCreators from './store/actionCreators';
+import Header from '../header';
 
 import Conversation from '../conversation';
 
@@ -33,22 +33,26 @@ const Room = (props) => {
             setMount(true);
         }
     }, [mount, props, token, setToken]);
-    console.log(props.roomDetail);
+
     // there is only one room data, so get the first room from json list
+
     return (
+      <div>
+      <Header/>
         <div>
             <RoomDetail 
-                roomDetail={props.roomDetail ? props.roomDetail.toJS()[0]: undefined}
+                roomDetail={props.roomDetail ? props.roomDetail.toJS(): undefined}
             />
         </div>
+      </div>
     );
 }
 
 const RoomDetail = ({roomDetail}) => {
-    console.log(roomDetail);
+
     if (roomDetail){
         return (
-            <Conversation />
+            <Conversation props={roomDetail.roomid}/>
         );
     }
     return (<h1>Loading ...</h1>);

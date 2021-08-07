@@ -1,13 +1,10 @@
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
     Link} from 'react-router-dom';
 import {HeaderWrapper} from '../style';
 
 export default function header(){
     return (
-        <Router>
             <HeaderWrapper>
                 <nav>
                     <ul>
@@ -20,6 +17,5 @@ export default function header(){
                     </ul>
                 </nav>
             </HeaderWrapper>
-        </Router>
     );
 }

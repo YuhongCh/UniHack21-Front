@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
-import {Redirect} from 'react-router-dom';
 import useToken from '../gateway/token'
 import * as actionCreators from './store/actionCreators';
-import InfiniteScroll from 'react-infinite-scroll-component';
 import Header from '../header';
+import AutoGridNoWrap from "./component/AutoGridNoWrap";
+import {SquareWrapper} from "../style";
 
 async function validate(token) {
 
@@ -46,19 +46,16 @@ const Home = (props) => {
 
 const Post = ({postList, endId}) => {
 
-    if (postList){
+    if (postList) {
         return (
-            postList.map(post => (
-                <div>
-                    <h1>{post.postBody}</h1>
-                    <h1>{post.postId}</h1>
-                    <h1>{post.resonance}</h1>
-                </div>
-            ))
+          postList.map(post => (
+            <SquareWrapper>
+                <AutoGridNoWrap body={post.postbody}/>
+            </SquareWrapper>
+          ))
         );
     }
     return (<h1>Loading ...</h1>);
-
 }
 
 

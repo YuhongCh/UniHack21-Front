@@ -3,16 +3,17 @@ import * as actionTypes from "./actionTypes";
 
 const getConversationDetail = (result) => ({
     type: actionTypes.GET_CONVERSATION_DETAIL,
-    conversationDetail: result
+    conversationDetail: result.data
   })
   
-export const getConversation = (token) => {
+export const getConversation = (token, roomId) => {
   return (dispatch) => {
     axios({
-      method: 'get',
-      url: 'http://localhost:3000/conversation',
+      method: 'post',
+      url: 'http://localhost:8080/room/history',
       data: {
-        cookie: token
+        cookie: token,
+        roomId: 1628346176
       }
     }).then((res) => {
       dispatch(getConversationDetail(res.data));

@@ -1,9 +1,60 @@
 import styled from "styled-components";
-import {Link} from "react-router-dom";
 
 export const HeaderWrapper = styled.header`
   min-height: 70px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  overflow: hidden;`
+  overflow: hidden;
+  
+  padding-right: -100px;
+
+  ul li a:hover {
+    color: darkgray;
+  }
+
+  ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #555;
+    padding: 0 15px;
+  }
+
+  ul li {
+    list-style: none;
+    display: inline-block;
+  }
+  
+`
+
+export const SquareWrapper = styled.div`
+  
+  .text {
+    font-size: 16px;
+    font-family: 'Georgia', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .avatar {
+    color: whitesmoke;
+    background: pink;
+  }
+`
+
+export const ChatWrapper = styled.div`
+  font-family: 'Georgia', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-align: left;
+  
+  .border {
+    margin-left: 80px;
+    margin-right: 80px;
+    box-shadow: 0 0 5px #ccc;
+    padding: 15px 15px;
+    max-width: 1200px;
+    box-sizing: border-box;
+    -moz-osx-font-smoothing: grayscale;
+  }
+ 
+`
+

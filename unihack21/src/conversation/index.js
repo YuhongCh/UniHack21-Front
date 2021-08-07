@@ -4,8 +4,9 @@ import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 import useToken from '../gateway/token';
 import * as actionCreators from './store/actionCreators';
-
-import store from '../store';
+import {ChatWrapper} from "../style";
+import {Box} from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 
 async function validate(token) {
 
@@ -29,13 +30,13 @@ const Conversation = (props) => {
             .then((response) => {
                 if (!response) setToken(null);
             })
-            props.getConversationDetail(token);
+            props.getConversationDetail(token, props.props);
+            console.log(props.props)
             setMount(true);
         }
     }, [mount, props, token, setToken]);
     
     // console.log(store.getState().toJS().user.); 尝试链接user reducer
-
     return (
         <div>
             <Content conversationList={props.conversationDetail.toJS()}/>
@@ -46,20 +47,17 @@ const Conversation = (props) => {
 const Content = ({conversationList}) => {
     console.log(conversationList);
 
-    // sort the conversation by time
-    conversationList.sort(function(messageA, messageB){
-        return new Date(messageA.ctime) - new Date(messageB.ctime);
-    });
-
     return (
         conversationList.map(message => {
             // only those deleted is false can render
             if (message.deleted == 0){
                 return (
-                    <div>
-                        <h4>{message.ctime}, {message.senderid}</h4>
+                    <ChatWrapper>
+                        <Box className={"border"}>
+                            <Avatar alt="H" src="J"> {message.senderid}</Avatar>
                         <h3>{message.message}</h3>
-                    </div>
+                        </Box>
+                    </ChatWrapper>
                 )
             }
         })
@@ -75,8 +73,8 @@ const mapStateToProps = (state) => {
 
 
 const conversationDispath = (dispatch) => ({
-    getConversationDetail(token) {
-        const action = actionCreators.getConversation(token);
+    getConversationDetail(token, roomId) {
+        const action = actionCreators.getConversation(token, roomId);
         dispatch(action);
     }
 })

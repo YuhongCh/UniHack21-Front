@@ -3,15 +3,15 @@ import * as actionTypes from "./actionTypes";
 
 const getSquareData = (result) => ({
   type: actionTypes.GET_SQUARE_POST,
-  postList: result
+  postList: result.data
 })
 
 export const getSquare = (token) => {
 
   return (dispatch) => {
     axios({
-      method: 'get',
-      url: 'http://localhost:3000/posts',
+      method: 'post',
+      url: 'http://localhost:8080/post/all',
       data: {
         cookie: token
       }
