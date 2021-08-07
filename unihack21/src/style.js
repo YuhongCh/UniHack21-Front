@@ -100,3 +100,8 @@ export const FormWrapper = styled.div`
   -moz-osx-font-smoothing: grayscale;
 `
 
+export const Title = styled.h2`
+  text-align: center;
+  
+`
+
