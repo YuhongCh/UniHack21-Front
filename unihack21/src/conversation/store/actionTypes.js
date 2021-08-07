@@ -1,0 +1,1 @@
+export const GET_CONVERSATION_DETAIL = 'conversation/GET_CONVERSATION_DETAIL';

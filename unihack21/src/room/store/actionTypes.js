@@ -1,0 +1,1 @@
+export const GET_ROOM_INFO = 'room/GET_ROOM_INFO';

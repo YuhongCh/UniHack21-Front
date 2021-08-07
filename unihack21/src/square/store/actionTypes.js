@@ -1,0 +1,1 @@
+export const GET_SQUARE_POST = 'square/GET_SQUARE_POST';

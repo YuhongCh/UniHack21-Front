@@ -1,0 +1,1 @@
+export const GET_MENTOR_INFO = 'mentor/GET_MENTOR_INFO';
