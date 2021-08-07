@@ -89,3 +89,14 @@ export const MapWrapper = styled.div`
 
 `
 
+export const FormWrapper = styled.div`
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-top: 50px;
+  box-shadow: 0 0 5px #ccc;
+  padding: 15px 15px;
+  max-width: 1200px;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+`
+

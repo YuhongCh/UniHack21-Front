@@ -9,6 +9,7 @@ import {BrowserRouter} from "react-router-dom";
 import {Redirect, Switch} from "react-router";
 import Map from "./map";
 import Home from "./home";
+import Mentor from "./mentor";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route exact path='/room' component={Room}/>
         <Route exact path='/user' component={User}/>
         <Route exact path='/data_map' component={Map}/>
+        <Route exact path='/mentor' component={Mentor}/>
         <Route component={<Redirect to="/square"/>}/>
       </Switch>
     </BrowserRouter>
