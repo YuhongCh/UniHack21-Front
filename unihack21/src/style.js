@@ -58,3 +58,34 @@ export const ChatWrapper = styled.div`
  
 `
 
+export const CardWrapper = styled.div`
+  font-family: 'Georgia', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-align: left;
+
+  margin-left: 80px;
+  margin-right: 80px;
+  box-shadow: 0 0 5px #ccc;
+  padding: 15px 15px;
+  max-width: 1200px;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+`
+
+export const SomeWrapper = styled.div`
+  .avatar {
+    background: pink;
+    margin-left: 500px;
+  }
+`
+
+export const ImageWrapper = styled.div`
+  text-align: center;
+
+`
+
+export const MapWrapper = styled.div`
+  text-align: center;
+
+`
+

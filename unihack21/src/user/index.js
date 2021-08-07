@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux';
 import axios from 'axios';
-import {Redirect} from 'react-router-dom';
 import useToken from '../gateway/token';
 import * as actionCreators from './store/actionCreators';
+import Header from "../header";
+import SimpleCard from "./SimpleCard";
 
 async function validate(token) {
 
@@ -26,16 +27,17 @@ const User = (props) => {
             .then((response) => {
                 if (!response) setToken(null);
             })
-            console.log("Token is" + token);
             props.getUserData(token);
             setMount(true);
         }
     }, [mount, props, token, setToken]);
 
     // there is only one user data, so get the first user from json list
+
     return (
         <div>
-            <UserDetail userDetail={props.userDetail.toJS()[0]}/>
+            <Header/>
+            <UserDetail userDetail={props.userDetail.toJS()}/>
         </div>
     );
 }
@@ -43,7 +45,7 @@ const User = (props) => {
 const UserDetail = ({userDetail}) => {
     if (userDetail){
         return (
-            <h1>{userDetail.uid}</h1>
+          <SimpleCard info={userDetail}/>
         );
     }
     return (
@@ -52,7 +54,6 @@ const UserDetail = ({userDetail}) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         userDetail: state.getIn(['user', 'userDetail'])
     }
@@ -61,7 +62,6 @@ const mapStateToProps = (state) => {
 const mapDispatch = (dispatch) => ({
     getUserData(token) {
         const action = actionCreators.getUser(token);
-        console.log(action);
         dispatch(action);
     }
   })

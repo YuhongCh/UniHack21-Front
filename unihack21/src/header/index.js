@@ -8,7 +8,7 @@ export default function header(){
             <HeaderWrapper>
                 <nav>
                     <ul>
-                        <li><Link to='/'> Home </Link></li>
+                        <li><Link to='/home'> Home </Link></li>
                         <li><Link to="/square"> Square </Link></li>
                         <li><Link to="/data_map"> Map </Link></li>
                         <li><Link to="/user"> Peronsal Info </Link></li>

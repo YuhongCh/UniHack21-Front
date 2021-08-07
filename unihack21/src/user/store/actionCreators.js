@@ -3,14 +3,14 @@ import * as actionTypes from "./actionTypes";
 
 const getUserData = (result) => ({
   type: actionTypes.GET_USER_INFO,
-  userDetail: result
+  userDetail: result.data
 })
 
 export const getUser = (token) => {
   return (dispatch) => {
     axios({
-      method: 'get',
-      url: 'http://localhost:3000/user',
+      method: 'post',
+      url: 'http://localhost:8080/user/get',
       data: {
         cookie: token
       }
